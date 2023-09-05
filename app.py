@@ -48,7 +48,7 @@ def users_show(user_id):
     return render_template('users/show.html', user=user)
 
 @app.route('/users<int:user_id>/edit')
-def users_show(user_id):
+def users_edit(user_id):
 
     user = User.query.get_or_404(user_id)
     return render_template('users/edit.html', user=user)
