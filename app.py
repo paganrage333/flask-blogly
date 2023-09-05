@@ -68,3 +68,4 @@ def users_delete(user_id):
     db.session.commit()
 
     return redirect("/users")
+
