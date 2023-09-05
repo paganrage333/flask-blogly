@@ -17,6 +17,8 @@ db.create_all()
 def root():
     return redirect("/users")
 
+######## USER ROUTES
+
 @app.route("/users")
 def users_index():
     users = User.query.order_by(User.last_name, User.first_name).all()
@@ -74,6 +76,8 @@ def users_delete(user_id):
     db.session.commit()
 
     return redirect("/users")
+
+############ POST ROUTES
 
 @app.route('/users/<int:user_id>/posts/new')
 def posts_new_form(user_id):

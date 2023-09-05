@@ -46,10 +46,11 @@ class Post(db.Model):
 
     user = db.relationship('User', backref=db.backref('posts'), lazy=True)
 
-    def __init__(self,title,content, user_id):
-        self.title = title
-        self.content = content
-        self.user_id = user_id
+
+    # def __init__(self,title,content, user_id):
+    #     self.title = title
+    #     self.content = content
+    #     self.user_id = user_id
 
 def connect_db(app):
 
