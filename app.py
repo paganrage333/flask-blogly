@@ -41,19 +41,19 @@ def users_new():
 
     return redirect('/users')
 
-@app.route('/users<int:user_id>')
+@app.route('/users/<int:user_id>')
 def users_show(user_id):
 
     user = User.query.get_or_404(user_id)
     return render_template('users/show.html', user=user)
 
-@app.route('/users<int:user_id>/edit')
+@app.route('/users/<int:user_id>/edit')
 def users_edit(user_id):
 
     user = User.query.get_or_404(user_id)
     return render_template('users/edit.html', user=user)
 
-@app.route('/users<int:user_id>', methods=["POST"])
+@app.route('/users/<int:user_id>', methods=["POST"])
 def users_update(user_id):
 
     user = User.query.get_or_404(user_id)
