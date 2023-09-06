@@ -1,7 +1,7 @@
 """Blogly application."""
 
 from flask import Flask, request, render_template, redirect, flash
-from models import db, connect_db, User, Post
+from models import db, connect_db, User, Post, Tag
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly'
@@ -132,3 +132,13 @@ def posts_destroy(post_id):
     db.session.commit()
     flash(f"Post '{post.title}' deleted")
     return redirect(f"/users/{post.user_id}")
+
+
+############## TAGS ROUTES
+
+@app.route('/tags')
+def tag_index():
+
+    tags = Tag.query.all()
+    return render_template('tags/index.html', tags=tags)
+
